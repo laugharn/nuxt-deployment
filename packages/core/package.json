@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "dotenv": "^5.0.0",
         "nuxt-edge": "latest"
     },
     "name": "core",

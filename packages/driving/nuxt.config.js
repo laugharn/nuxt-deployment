@@ -16,5 +16,9 @@ export default {
             config.resolve.alias["@core"] = corePath;
             config.resolve.alias["@modules"] = modulesDirPath;
         }
+    },
+
+    env: {
+        ENV_FILE: process.env.ENV_FILE
     }
 };
