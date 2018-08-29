@@ -4,7 +4,7 @@ import hello from "@core/assets/js/hello";
 export default {
     computed: {
         hello() {
-            return hello(this.name) + ', this is on ' process.env.ENV_FILE;
+            return hello(this.name) + ", this is on " + process.env.ENV_FILE;
         }
     },
 
