@@ -1,0 +1,10 @@
+{
+    "name": "mkt-pyramid",
+    "private": true,
+    "workspaces": [
+        "packages/core",
+        "packages/driving",
+        "packages/real-estate"
+    ],
+    "version": "1.0.0"
+}

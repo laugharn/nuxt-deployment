@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "nuxt-edge": "latest"
+    },
+    "name": "core",
+    "private": true,
+    "scripts": {
+        "generate": "nuxt generate"
+    },
+    "version": "1.0.0"
+}
