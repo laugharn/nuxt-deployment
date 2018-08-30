@@ -43,6 +43,10 @@ export default {
         ...config
     },
 
+    generate: {
+        routes: ["/checkout/"]
+    },
+
     head: {
         titleTemplate: "%s - Aceable"
     },
