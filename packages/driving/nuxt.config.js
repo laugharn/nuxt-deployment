@@ -44,7 +44,26 @@ export default {
     },
 
     generate: {
-        routes: ["/checkout/"]
+        routes: async function() {
+            const ultra = await import(corePath +
+                "/assets/js/services/ultra/query").then(
+                response => response.default
+            );
+
+            let pages = await ultra({
+                post_type: "page",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(page => {
+                    return {
+                        route: page.post_name == "home" ? "/" : page.permalink,
+                        payload: page
+                    };
+                })
+            );
+
+            return [...pages];
+        }
     },
 
     head: {
