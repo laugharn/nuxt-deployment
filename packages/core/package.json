@@ -1,4 +1,5 @@
 {
+    "name": "@aceable/mkt-core",
     "dependencies": {
         "@nuxtjs/icon": "^2.1.0",
         "@nuxtjs/meta": "^2.2.1",
@@ -34,9 +35,9 @@
         "vuex-persistedstate": "^2.5.1",
         "youtube-player": "^5.5.0"
     },
-    "name": "core",
     "private": true,
     "scripts": {
+        "dev": "nuxt generate",
         "generate": "nuxt generate"
     },
     "version": "1.0.0"

@@ -1,11 +1,7 @@
-# dependencies
-node_modules
-
-# logs
+/dist
+/node_modules
+/.nuxt
+.env
+*.DS_Store
 npm-debug.log
-
-# Nuxt build
-.nuxt
-
-# Nuxt generate
-dist
+yarn-error.log

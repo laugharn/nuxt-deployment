@@ -1,0 +1,189 @@
+@import "./functions";
+@import "./variables";
+@import "./mixins";
+
+// Utility class imports
+@import "./animation";
+@import "./aspect-ratio";
+
+@import "~@modules/bootstrap/scss/bootstrap";
+
+@import "../fonts/fontawesome-pro/scss/fontawesome";
+@import "./fonts/fa-brands";
+@import "./fonts/fa-solid";
+
+.big-radius {
+    border-radius: ($spacer * 0.67);
+}
+
+.btn {
+    &:not(.btn-lg) {
+        font-size: $font-size-sm !important;
+
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base !important;
+        }
+    }
+}
+
+.btn-pill {
+    border-radius: 999px !important;
+}
+
+.form-control {
+    &:not(.form-control-lg) {
+        font-size: $font-size-sm !important;
+
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base !important;
+        }
+    }
+}
+
+// TODO Create utility for this
+.bg-brand-to-success {
+    background-image: linear-gradient(
+        to right,
+        map-get($theme-colors, brand),
+        map-get($theme-colors, success)
+    ) !important;
+}
+
+.bg-success-to-progress {
+    background-image: linear-gradient(
+        to right,
+        map-get($theme-colors, success),
+        map-get($theme-colors, progress)
+    ) !important;
+}
+
+strong {
+    font-weight: $headings-font-weight;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.wrapper {
+    display: block;
+    width: 100%;
+}
+
+.bg-no-repeat {
+    background-repeat: no-repeat;
+}
+
+.bg-position-center {
+    background-position: center;
+}
+
+.bg-size-cover {
+    background-size: cover;
+}
+
+.w-md-50 {
+    @include media-breakpoint-up(md) {
+        width: 50% !important;
+    }
+}
+
+.font-size-h1 {
+    font-size: map-get($headings-font-sizes, "h1");
+}
+
+.font-size-desktop-h1 {
+    @include media-breakpoint-up(md) {
+        font-size: map-get($headings-font-sizes, "h1");
+    }
+}
+
+.font-size-mobile-h1 {
+    @include media-breakpoint-down(sm) {
+        font-size: map-get($headings-font-sizes, "h1");
+    }
+}
+
+.font-size-h2 {
+    font-size: map-get($headings-font-sizes, "h2");
+}
+
+.font-size-desktop-h2 {
+    @include media-breakpoint-up(md) {
+        font-size: map-get($headings-font-sizes, "h2");
+    }
+}
+
+.font-size-mobile-h2 {
+    @include media-breakpoint-down(sm) {
+        font-size: map-get($headings-font-sizes, "h2");
+    }
+}
+
+.font-size-h3 {
+    font-size: map-get($headings-font-sizes, "h3");
+}
+
+.font-size-h4 {
+    font-size: map-get($headings-font-sizes, "h4");
+}
+
+.font-size-lg {
+    font-size: $font-size-lg;
+}
+
+.font-size-lg-desktop {
+    @include media-breakpoint-up(md) {
+        font-size: $font-size-lg;
+    }
+}
+
+.font-size-lg-mobile {
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-lg;
+    }
+}
+
+.font-size-sm {
+    font-size: $font-size-sm;
+}
+
+.font-size-desktop-sm {
+    @include media-breakpoint-up(md) {
+        font-size: $font-size-sm;
+    }
+}
+
+.font-size-mobile-sm {
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-sm;
+    }
+}
+
+.font-size-xs {
+    font-size: $font-size-xs;
+}
+
+.font-size-desktop-xs {
+    @include media-breakpoint-up(md) {
+        font-size: $font-size-xs;
+    }
+}
+
+.font-size-mobile-xs {
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-xs;
+    }
+}
+
+.font-size-xxs {
+    font-size: $font-size-xxs;
+}
+
+.line-height-heading {
+    line-height: $headings-line-height;
+}
+
+.text-strike {
+    text-decoration: line-through;
+}

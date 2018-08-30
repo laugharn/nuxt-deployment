@@ -1,0 +1,655 @@
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+readers do not read off random characters that represent icons */
+
+.#{$fa-css-prefix}-android:before {
+    content: fa-content($fa-var-android);
+}
+.#{$fa-css-prefix}-app-store:before {
+    content: fa-content($fa-var-app-store);
+}
+.#{$fa-css-prefix}-app-store-ios:before {
+    content: fa-content($fa-var-app-store-ios);
+}
+.#{$fa-css-prefix}-apple:before {
+    content: fa-content($fa-var-apple);
+}
+.#{$fa-css-prefix}-apple-pay:before {
+    content: fa-content($fa-var-apple-pay);
+}
+.#{$fa-css-prefix}-arrow-alt-circle-down:before {
+    content: fa-content($fa-var-arrow-alt-circle-down);
+}
+.#{$fa-css-prefix}-arrow-alt-circle-left:before {
+    content: fa-content($fa-var-arrow-alt-circle-left);
+}
+.#{$fa-css-prefix}-arrow-alt-circle-right:before {
+    content: fa-content($fa-var-arrow-alt-circle-right);
+}
+.#{$fa-css-prefix}-arrow-alt-circle-up:before {
+    content: fa-content($fa-var-arrow-alt-circle-up);
+}
+.#{$fa-css-prefix}-arrow-alt-down:before {
+    content: fa-content($fa-var-arrow-alt-down);
+}
+.#{$fa-css-prefix}-arrow-alt-from-bottom:before {
+    content: fa-content($fa-var-arrow-alt-from-bottom);
+}
+.#{$fa-css-prefix}-arrow-alt-from-left:before {
+    content: fa-content($fa-var-arrow-alt-from-left);
+}
+.#{$fa-css-prefix}-arrow-alt-from-right:before {
+    content: fa-content($fa-var-arrow-alt-from-right);
+}
+.#{$fa-css-prefix}-arrow-alt-from-top:before {
+    content: fa-content($fa-var-arrow-alt-from-top);
+}
+.#{$fa-css-prefix}-arrow-alt-left:before {
+    content: fa-content($fa-var-arrow-alt-left);
+}
+.#{$fa-css-prefix}-arrow-alt-right:before {
+    content: fa-content($fa-var-arrow-alt-right);
+}
+.#{$fa-css-prefix}-arrow-alt-square-down:before {
+    content: fa-content($fa-var-arrow-alt-square-down);
+}
+.#{$fa-css-prefix}-arrow-alt-square-left:before {
+    content: fa-content($fa-var-arrow-alt-square-left);
+}
+.#{$fa-css-prefix}-arrow-alt-square-right:before {
+    content: fa-content($fa-var-arrow-alt-square-right);
+}
+.#{$fa-css-prefix}-arrow-alt-square-up:before {
+    content: fa-content($fa-var-arrow-alt-square-up);
+}
+.#{$fa-css-prefix}-arrow-alt-to-bottom:before {
+    content: fa-content($fa-var-arrow-alt-to-bottom);
+}
+.#{$fa-css-prefix}-arrow-alt-to-left:before {
+    content: fa-content($fa-var-arrow-alt-to-left);
+}
+.#{$fa-css-prefix}-arrow-alt-to-right:before {
+    content: fa-content($fa-var-arrow-alt-to-right);
+}
+.#{$fa-css-prefix}-arrow-alt-to-top:before {
+    content: fa-content($fa-var-arrow-alt-to-top);
+}
+.#{$fa-css-prefix}-arrow-alt-up:before {
+    content: fa-content($fa-var-arrow-alt-up);
+}
+.#{$fa-css-prefix}-arrow-circle-down:before {
+    content: fa-content($fa-var-arrow-circle-down);
+}
+.#{$fa-css-prefix}-arrow-circle-left:before {
+    content: fa-content($fa-var-arrow-circle-left);
+}
+.#{$fa-css-prefix}-arrow-circle-right:before {
+    content: fa-content($fa-var-arrow-circle-right);
+}
+.#{$fa-css-prefix}-arrow-circle-up:before {
+    content: fa-content($fa-var-arrow-circle-up);
+}
+.#{$fa-css-prefix}-arrow-down:before {
+    content: fa-content($fa-var-arrow-down);
+}
+.#{$fa-css-prefix}-arrow-from-bottom:before {
+    content: fa-content($fa-var-arrow-from-bottom);
+}
+.#{$fa-css-prefix}-arrow-from-left:before {
+    content: fa-content($fa-var-arrow-from-left);
+}
+.#{$fa-css-prefix}-arrow-from-right:before {
+    content: fa-content($fa-var-arrow-from-right);
+}
+.#{$fa-css-prefix}-arrow-from-top:before {
+    content: fa-content($fa-var-arrow-from-top);
+}
+.#{$fa-css-prefix}-arrow-left:before {
+    content: fa-content($fa-var-arrow-left);
+}
+.#{$fa-css-prefix}-arrow-right:before {
+    content: fa-content($fa-var-arrow-right);
+}
+.#{$fa-css-prefix}-arrow-square-down:before {
+    content: fa-content($fa-var-arrow-square-down);
+}
+.#{$fa-css-prefix}-arrow-square-left:before {
+    content: fa-content($fa-var-arrow-square-left);
+}
+.#{$fa-css-prefix}-arrow-square-right:before {
+    content: fa-content($fa-var-arrow-square-right);
+}
+.#{$fa-css-prefix}-arrow-square-up:before {
+    content: fa-content($fa-var-arrow-square-up);
+}
+.#{$fa-css-prefix}-arrow-to-bottom:before {
+    content: fa-content($fa-var-arrow-to-bottom);
+}
+.#{$fa-css-prefix}-arrow-to-left:before {
+    content: fa-content($fa-var-arrow-to-left);
+}
+.#{$fa-css-prefix}-arrow-to-right:before {
+    content: fa-content($fa-var-arrow-to-right);
+}
+.#{$fa-css-prefix}-arrow-to-top:before {
+    content: fa-content($fa-var-arrow-to-top);
+}
+.#{$fa-css-prefix}-arrow-up:before {
+    content: fa-content($fa-var-arrow-up);
+}
+.#{$fa-css-prefix}-arrows:before {
+    content: fa-content($fa-var-arrows);
+}
+.#{$fa-css-prefix}-arrows-alt:before {
+    content: fa-content($fa-var-arrows-alt);
+}
+.#{$fa-css-prefix}-arrows-alt-h:before {
+    content: fa-content($fa-var-arrows-alt-h);
+}
+.#{$fa-css-prefix}-arrows-alt-v:before {
+    content: fa-content($fa-var-arrows-alt-v);
+}
+.#{$fa-css-prefix}-arrows-h:before {
+    content: fa-content($fa-var-arrows-h);
+}
+.#{$fa-css-prefix}-arrows-v:before {
+    content: fa-content($fa-var-arrows-v);
+}
+.#{$fa-css-prefix}-asterisk:before {
+    content: fa-content($fa-var-asterisk);
+}
+.#{$fa-css-prefix}-aws:before {
+    content: fa-content($fa-var-aws);
+}
+.#{$fa-css-prefix}-badge:before {
+    content: fa-content($fa-var-badge);
+}
+.#{$fa-css-prefix}-badge-check:before {
+    content: fa-content($fa-var-badge-check);
+}
+
+.#{$fa-css-prefix}-bars:before {
+    content: fa-content($fa-var-bars);
+}
+.#{$fa-css-prefix}-calendar:before {
+    content: fa-content($fa-var-calendar);
+}
+.#{$fa-css-prefix}-calendar-alt:before {
+    content: fa-content($fa-var-calendar-alt);
+}
+.#{$fa-css-prefix}-calendar-check:before {
+    content: fa-content($fa-var-calendar-check);
+}
+.#{$fa-css-prefix}-calendar-edit:before {
+    content: fa-content($fa-var-calendar-edit);
+}
+.#{$fa-css-prefix}-calendar-exclamation:before {
+    content: fa-content($fa-var-calendar-exclamation);
+}
+.#{$fa-css-prefix}-calendar-minus:before {
+    content: fa-content($fa-var-calendar-minus);
+}
+.#{$fa-css-prefix}-calendar-plus:before {
+    content: fa-content($fa-var-calendar-plus);
+}
+.#{$fa-css-prefix}-calendar-times:before {
+    content: fa-content($fa-var-calendar-times);
+}
+.#{$fa-css-prefix}-camera:before {
+    content: fa-content($fa-var-camera);
+}
+.#{$fa-css-prefix}-camera-alt:before {
+    content: fa-content($fa-var-camera-alt);
+}
+.#{$fa-css-prefix}-camera-retro:before {
+    content: fa-content($fa-var-camera-retro);
+}
+.#{$fa-css-prefix}-car:before {
+    content: fa-content($fa-var-car);
+}
+.#{$fa-css-prefix}-caret-circle-down:before {
+    content: fa-content($fa-var-caret-circle-down);
+}
+.#{$fa-css-prefix}-caret-circle-left:before {
+    content: fa-content($fa-var-caret-circle-left);
+}
+.#{$fa-css-prefix}-caret-circle-right:before {
+    content: fa-content($fa-var-caret-circle-right);
+}
+.#{$fa-css-prefix}-caret-circle-up:before {
+    content: fa-content($fa-var-caret-circle-up);
+}
+.#{$fa-css-prefix}-caret-down:before {
+    content: fa-content($fa-var-caret-down);
+}
+.#{$fa-css-prefix}-caret-left:before {
+    content: fa-content($fa-var-caret-left);
+}
+.#{$fa-css-prefix}-caret-right:before {
+    content: fa-content($fa-var-caret-right);
+}
+.#{$fa-css-prefix}-caret-square-down:before {
+    content: fa-content($fa-var-caret-square-down);
+}
+.#{$fa-css-prefix}-caret-square-left:before {
+    content: fa-content($fa-var-caret-square-left);
+}
+.#{$fa-css-prefix}-caret-square-right:before {
+    content: fa-content($fa-var-caret-square-right);
+}
+.#{$fa-css-prefix}-caret-square-up:before {
+    content: fa-content($fa-var-caret-square-up);
+}
+.#{$fa-css-prefix}-caret-up:before {
+    content: fa-content($fa-var-caret-up);
+}
+.#{$fa-css-prefix}-cart-arrow-down:before {
+    content: fa-content($fa-var-cart-arrow-down);
+}
+.#{$fa-css-prefix}-cart-plus:before {
+    content: fa-content($fa-var-cart-plus);
+}
+.#{$fa-css-prefix}-cc-amazon-pay:before {
+    content: fa-content($fa-var-cc-amazon-pay);
+}
+.#{$fa-css-prefix}-cc-amex:before {
+    content: fa-content($fa-var-cc-amex);
+}
+.#{$fa-css-prefix}-cc-apple-pay:before {
+    content: fa-content($fa-var-cc-apple-pay);
+}
+.#{$fa-css-prefix}-cc-diners-club:before {
+    content: fa-content($fa-var-cc-diners-club);
+}
+.#{$fa-css-prefix}-cc-discover:before {
+    content: fa-content($fa-var-cc-discover);
+}
+.#{$fa-css-prefix}-cc-jcb:before {
+    content: fa-content($fa-var-cc-jcb);
+}
+.#{$fa-css-prefix}-cc-mastercard:before {
+    content: fa-content($fa-var-cc-mastercard);
+}
+.#{$fa-css-prefix}-cc-paypal:before {
+    content: fa-content($fa-var-cc-paypal);
+}
+.#{$fa-css-prefix}-cc-stripe:before {
+    content: fa-content($fa-var-cc-stripe);
+}
+.#{$fa-css-prefix}-cc-visa:before {
+    content: fa-content($fa-var-cc-visa);
+}
+.#{$fa-css-prefix}-check:before {
+    content: fa-content($fa-var-check);
+}
+.#{$fa-css-prefix}-check-circle:before {
+    content: fa-content($fa-var-check-circle);
+}
+.#{$fa-css-prefix}-check-square:before {
+    content: fa-content($fa-var-check-square);
+}
+.#{$fa-css-prefix}-chevron-circle-down:before {
+    content: fa-content($fa-var-chevron-circle-down);
+}
+.#{$fa-css-prefix}-chevron-circle-left:before {
+    content: fa-content($fa-var-chevron-circle-left);
+}
+.#{$fa-css-prefix}-chevron-circle-right:before {
+    content: fa-content($fa-var-chevron-circle-right);
+}
+.#{$fa-css-prefix}-chevron-circle-up:before {
+    content: fa-content($fa-var-chevron-circle-up);
+}
+.#{$fa-css-prefix}-chevron-double-down:before {
+    content: fa-content($fa-var-chevron-double-down);
+}
+.#{$fa-css-prefix}-chevron-double-left:before {
+    content: fa-content($fa-var-chevron-double-left);
+}
+.#{$fa-css-prefix}-chevron-double-right:before {
+    content: fa-content($fa-var-chevron-double-right);
+}
+.#{$fa-css-prefix}-chevron-double-up:before {
+    content: fa-content($fa-var-chevron-double-up);
+}
+.#{$fa-css-prefix}-chevron-down:before {
+    content: fa-content($fa-var-chevron-down);
+}
+.#{$fa-css-prefix}-chevron-left:before {
+    content: fa-content($fa-var-chevron-left);
+}
+.#{$fa-css-prefix}-chevron-right:before {
+    content: fa-content($fa-var-chevron-right);
+}
+.#{$fa-css-prefix}-chevron-square-down:before {
+    content: fa-content($fa-var-chevron-square-down);
+}
+.#{$fa-css-prefix}-chevron-square-left:before {
+    content: fa-content($fa-var-chevron-square-left);
+}
+.#{$fa-css-prefix}-chevron-square-right:before {
+    content: fa-content($fa-var-chevron-square-right);
+}
+.#{$fa-css-prefix}-chevron-square-up:before {
+    content: fa-content($fa-var-chevron-square-up);
+}
+.#{$fa-css-prefix}-chevron-up:before {
+    content: fa-content($fa-var-chevron-up);
+}
+.#{$fa-css-prefix}-clock:before {
+    content: fa-content($fa-var-clock);
+}
+.#{$fa-css-prefix}-cog:before {
+    content: fa-content($fa-var-cog);
+}
+.#{$fa-css-prefix}-cogs:before {
+    content: fa-content($fa-var-cogs);
+}
+.#{$fa-css-prefix}-comment:before {
+    content: fa-content($fa-var-comment);
+}
+.#{$fa-css-prefix}-copyright:before {
+    content: fa-content($fa-var-copyright);
+}
+.#{$fa-css-prefix}-credit-card:before {
+    content: fa-content($fa-var-credit-card);
+}
+.#{$fa-css-prefix}-credit-card-blank:before {
+    content: fa-content($fa-var-credit-card-blank);
+}
+.#{$fa-css-prefix}-credit-card-front:before {
+    content: fa-content($fa-var-credit-card-front);
+}
+.#{$fa-css-prefix}-download:before {
+    content: fa-content($fa-var-download);
+}
+.#{$fa-css-prefix}-ellipsis-h:before {
+    content: fa-content($fa-var-ellipsis-h);
+}
+.#{$fa-css-prefix}-ellipsis-h-alt:before {
+    content: fa-content($fa-var-ellipsis-h-alt);
+}
+.#{$fa-css-prefix}-ellipsis-v:before {
+    content: fa-content($fa-var-ellipsis-v);
+}
+.#{$fa-css-prefix}-ellipsis-v-alt:before {
+    content: fa-content($fa-var-ellipsis-v-alt);
+}
+.#{$fa-css-prefix}-envelope:before {
+    content: fa-content($fa-var-envelope);
+}
+.#{$fa-css-prefix}-envelope-open:before {
+    content: fa-content($fa-var-envelope-open);
+}
+.#{$fa-css-prefix}-envelope-square:before {
+    content: fa-content($fa-var-envelope-square);
+}
+.#{$fa-css-prefix}-exclamation:before {
+    content: fa-content($fa-var-exclamation);
+}
+.#{$fa-css-prefix}-exclamation-circle:before {
+    content: fa-content($fa-var-exclamation-circle);
+}
+.#{$fa-css-prefix}-exclamation-square:before {
+    content: fa-content($fa-var-exclamation-square);
+}
+.#{$fa-css-prefix}-exclamation-triangle:before {
+    content: fa-content($fa-var-exclamation-triangle);
+}
+.#{$fa-css-prefix}-facebook:before {
+    content: fa-content($fa-var-facebook);
+}
+.#{$fa-css-prefix}-facebook-f:before {
+    content: fa-content($fa-var-facebook-f);
+}
+.#{$fa-css-prefix}-facebook-messenger:before {
+    content: fa-content($fa-var-facebook-messenger);
+}
+.#{$fa-css-prefix}-facebook-square:before {
+    content: fa-content($fa-var-facebook-square);
+}
+.#{$fa-css-prefix}-google-play:before {
+    content: fa-content($fa-var-google-play);
+}
+.#{$fa-css-prefix}-google-plus:before {
+    content: fa-content($fa-var-google-plus);
+}
+.#{$fa-css-prefix}-google-plus-g:before {
+    content: fa-content($fa-var-google-plus-g);
+}
+.#{$fa-css-prefix}-google-plus-square:before {
+    content: fa-content($fa-var-google-plus-square);
+}
+.#{$fa-css-prefix}-hashtag:before {
+    content: fa-content($fa-var-hashtag);
+}
+.#{$fa-css-prefix}-heart:before {
+    content: fa-content($fa-var-heart);
+}
+.#{$fa-css-prefix}-heart-circle:before {
+    content: fa-content($fa-var-heart-circle);
+}
+.#{$fa-css-prefix}-heart-square:before {
+    content: fa-content($fa-var-heart-square);
+}
+.#{$fa-css-prefix}-home:before {
+    content: fa-content($fa-var-home);
+}
+.#{$fa-css-prefix}-info:before {
+    content: fa-content($fa-var-info);
+}
+.#{$fa-css-prefix}-info-circle:before {
+    content: fa-content($fa-var-info-circle);
+}
+.#{$fa-css-prefix}-info-square:before {
+    content: fa-content($fa-var-info-square);
+}
+.#{$fa-css-prefix}-instagram:before {
+    content: fa-content($fa-var-instagram);
+}
+.#{$fa-css-prefix}-linkedin:before {
+    content: fa-content($fa-var-linkedin);
+}
+.#{$fa-css-prefix}-linkedin-in:before {
+    content: fa-content($fa-var-linkedin-in);
+}
+.#{$fa-css-prefix}-map:before {
+    content: fa-content($fa-var-map);
+}
+.#{$fa-css-prefix}-map-marker:before {
+    content: fa-content($fa-var-map-marker);
+}
+.#{$fa-css-prefix}-map-marker-alt:before {
+    content: fa-content($fa-var-map-marker-alt);
+}
+.#{$fa-css-prefix}-map-pin:before {
+    content: fa-content($fa-var-map-pin);
+}
+.#{$fa-css-prefix}-map-signs:before {
+    content: fa-content($fa-var-map-signs);
+}
+.#{$fa-css-prefix}-minus:before {
+    content: fa-content($fa-var-minus);
+}
+.#{$fa-css-prefix}-minus-circle:before {
+    content: fa-content($fa-var-minus-circle);
+}
+.#{$fa-css-prefix}-minus-hexagon:before {
+    content: fa-content($fa-var-minus-hexagon);
+}
+.#{$fa-css-prefix}-minus-octagon:before {
+    content: fa-content($fa-var-minus-octagon);
+}
+.#{$fa-css-prefix}-minus-square:before {
+    content: fa-content($fa-var-minus-square);
+}
+.#{$fa-css-prefix}-paypal:before {
+    content: fa-content($fa-var-paypal);
+}
+.#{$fa-css-prefix}-phone:before {
+    content: fa-content($fa-var-phone);
+}
+.#{$fa-css-prefix}-phone-plus:before {
+    content: fa-content($fa-var-phone-plus);
+}
+.#{$fa-css-prefix}-phone-slash:before {
+    content: fa-content($fa-var-phone-slash);
+}
+.#{$fa-css-prefix}-phone-square:before {
+    content: fa-content($fa-var-phone-square);
+}
+.#{$fa-css-prefix}-phone-volume:before {
+    content: fa-content($fa-var-phone-volume);
+}
+.#{$fa-css-prefix}-pinterest:before {
+    content: fa-content($fa-var-pinterest);
+}
+.#{$fa-css-prefix}-pinterest-p:before {
+    content: fa-content($fa-var-pinterest-p);
+}
+.#{$fa-css-prefix}-pinterest-square:before {
+    content: fa-content($fa-var-pinterest-square);
+}
+.#{$fa-css-prefix}-play:before {
+    content: fa-content($fa-var-play);
+}
+.#{$fa-css-prefix}-plus:before {
+    content: fa-content($fa-var-plus);
+}
+.#{$fa-css-prefix}-plus-circle:before {
+    content: fa-content($fa-var-plus-circle);
+}
+.#{$fa-css-prefix}-plus-hexagon:before {
+    content: fa-content($fa-var-plus-hexagon);
+}
+.#{$fa-css-prefix}-plus-octagon:before {
+    content: fa-content($fa-var-plus-octagon);
+}
+.#{$fa-css-prefix}-plus-square:before {
+    content: fa-content($fa-var-plus-square);
+}
+.#{$fa-css-prefix}-question:before {
+    content: fa-content($fa-var-question);
+}
+.#{$fa-css-prefix}-question-circle:before {
+    content: fa-content($fa-var-question-circle);
+}
+.#{$fa-css-prefix}-question-square:before {
+    content: fa-content($fa-var-question-square);
+}
+.#{$fa-css-prefix}-quote-left:before {
+    content: fa-content($fa-var-quote-left);
+}
+.#{$fa-css-prefix}-quote-right:before {
+    content: fa-content($fa-var-quote-right);
+}
+.#{$fa-css-prefix}-search:before {
+    content: fa-content($fa-var-search);
+}
+.#{$fa-css-prefix}-search-minus:before {
+    content: fa-content($fa-var-search-minus);
+}
+.#{$fa-css-prefix}-search-plus:before {
+    content: fa-content($fa-var-search-plus);
+}
+.#{$fa-css-prefix}-share:before {
+    content: fa-content($fa-var-share);
+}
+.#{$fa-css-prefix}-share-all:before {
+    content: fa-content($fa-var-share-all);
+}
+.#{$fa-css-prefix}-share-alt:before {
+    content: fa-content($fa-var-share-alt);
+}
+.#{$fa-css-prefix}-share-alt-square:before {
+    content: fa-content($fa-var-share-alt-square);
+}
+.#{$fa-css-prefix}-share-square:before {
+    content: fa-content($fa-var-share-square);
+}
+.#{$fa-css-prefix}-shopping-bag:before {
+    content: fa-content($fa-var-shopping-bag);
+}
+.#{$fa-css-prefix}-shopping-basket:before {
+    content: fa-content($fa-var-shopping-basket);
+}
+.#{$fa-css-prefix}-shopping-cart:before {
+    content: fa-content($fa-var-shopping-cart);
+}
+.#{$fa-css-prefix}-sign-in:before {
+    content: fa-content($fa-var-sign-in);
+}
+.#{$fa-css-prefix}-sign-in-alt:before {
+    content: fa-content($fa-var-sign-in-alt);
+}
+.#{$fa-css-prefix}-sign-out:before {
+    content: fa-content($fa-var-sign-out);
+}
+.#{$fa-css-prefix}-sign-out-alt:before {
+    content: fa-content($fa-var-sign-out-alt);
+}
+.#{$fa-css-prefix}-snapchat:before {
+    content: fa-content($fa-var-snapchat);
+}
+.#{$fa-css-prefix}-snapchat-ghost:before {
+    content: fa-content($fa-var-snapchat-ghost);
+}
+.#{$fa-css-prefix}-snapchat-square:before {
+    content: fa-content($fa-var-snapchat-square);
+}
+.#{$fa-css-prefix}-spinner:before {
+    content: fa-content($fa-var-spinner);
+}
+.#{$fa-css-prefix}-star:before {
+    content: fa-content($fa-var-star);
+}
+.#{$fa-css-prefix}-star-exclamation:before {
+    content: fa-content($fa-var-star-exclamation);
+}
+.#{$fa-css-prefix}-star-half:before {
+    content: fa-content($fa-var-star-half);
+}
+.#{$fa-css-prefix}-stripe:before {
+    content: fa-content($fa-var-stripe);
+}
+.#{$fa-css-prefix}-stripe-s:before {
+    content: fa-content($fa-var-stripe-s);
+}
+.#{$fa-css-prefix}-times:before {
+    content: fa-content($fa-var-times);
+}
+.#{$fa-css-prefix}-times-circle:before {
+    content: fa-content($fa-var-times-circle);
+}
+.#{$fa-css-prefix}-times-hexagon:before {
+    content: fa-content($fa-var-times-hexagon);
+}
+.#{$fa-css-prefix}-times-octagon:before {
+    content: fa-content($fa-var-times-octagon);
+}
+.#{$fa-css-prefix}-times-square:before {
+    content: fa-content($fa-var-times-square);
+}
+.#{$fa-css-prefix}-trash:before {
+    content: fa-content($fa-var-trash);
+}
+.#{$fa-css-prefix}-trash-alt:before {
+    content: fa-content($fa-var-trash-alt);
+}
+.#{$fa-css-prefix}-triangle:before {
+    content: fa-content($fa-var-triangle);
+}
+.#{$fa-css-prefix}-twitter:before {
+    content: fa-content($fa-var-twitter);
+}
+.#{$fa-css-prefix}-twitter-square:before {
+    content: fa-content($fa-var-twitter-square);
+}
+.#{$fa-css-prefix}-user:before {
+    content: fa-content($fa-var-user);
+}
+.#{$fa-css-prefix}-video:before {
+    content: fa-content($fa-var-video);
+}
+.#{$fa-css-prefix}-youtube:before {
+    content: fa-content($fa-var-youtube);
+}
