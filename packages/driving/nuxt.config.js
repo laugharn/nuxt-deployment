@@ -44,7 +44,7 @@ export default {
     },
 
     generate: {
-        routes: ["/checkout/"]
+        routes: ["/checkout/", "/sitemap.xml"]
     },
 
     head: {
@@ -90,6 +90,10 @@ export default {
         {
             handler: corePath + "/server/health-check",
             path: "health-check"
+        },
+        {
+            handler: corePath + "/server/sitemap",
+            path: "sitemap.xml"
         }
     ]
 };
