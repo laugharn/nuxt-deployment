@@ -44,9 +44,20 @@ export default {
     },
 
     generate: {
-        routes: function() {
+        routes: async function() {
+            const ultra = await import(corePath +
+                "/assets/js/services/ultra/content").then(
+                response => response.default
+            );
+
+            let checkout = await ultra({
+                pagename: "checkout",
+                post_type: "page"
+            });
+
             return [
                 {
+                    payload: checkout,
                     route: "/checkout/"
                 }
             ];
