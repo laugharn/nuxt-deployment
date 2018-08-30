@@ -45,21 +45,6 @@ export default {
         modulesDirPath + "/@nuxtjs/meta"
     ],
 
-    plugins: [
-        {
-            src: corePath + "/plugins/directives.js",
-            ssr: false
-        },
-        {
-            src: corePath + "/plugins/gtm",
-            ssr: false
-        },
-        {
-            src: corePath + "/plugins/storage",
-            ssr: false
-        }
-    ],
-
     render: {
         gzip: {
             threshold: 5
