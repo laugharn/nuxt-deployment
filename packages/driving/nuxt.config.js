@@ -45,7 +45,11 @@ export default {
 
     generate: {
         routes: async function() {
-            return ["/checkout/"];
+            return [
+                {
+                    route: "/checkout/"
+                }
+            ];
         }
     },
 
