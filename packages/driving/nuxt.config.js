@@ -44,7 +44,7 @@ export default {
     },
 
     generate: {
-        routes: async function() {
+        routes: function() {
             return [
                 {
                     route: "/checkout/"
