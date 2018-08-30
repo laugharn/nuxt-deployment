@@ -69,7 +69,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: "page--default",
+                template: "page--checkout-default",
                 templateData
             });
         } catch (error) {
