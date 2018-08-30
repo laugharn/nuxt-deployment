@@ -58,7 +58,7 @@ export default {
             return [
                 {
                     payload: checkout,
-                    route: "/checkout/"
+                    route: checkout.permalink
                 }
             ];
         }
