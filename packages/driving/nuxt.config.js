@@ -66,6 +66,10 @@ export default {
             ssr: false
         },
         {
+            src: corePath + "/plugins/gtm.js",
+            ssr: false
+        },
+        {
             src: corePath + "/plugins/storage.js",
             ssr: false
         }
@@ -79,5 +83,13 @@ export default {
             push: true
         },
         maxAge: 360000
-    }
+    },
+
+    serverMiddleware: [
+        corePath + "/server/cors",
+        {
+            handler: corePath + "/server/health-check",
+            path: "health-check"
+        }
+    ]
 };

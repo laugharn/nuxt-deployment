@@ -1,4 +1,8 @@
 {
     "name": "driving",
+    "scripts": {
+        "dev": "nuxt",
+        "generate": "nuxt generate"
+    },
     "version": "1.0.0"
 }

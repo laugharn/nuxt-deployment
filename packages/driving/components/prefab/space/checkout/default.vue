@@ -281,43 +281,41 @@ export default {
     mixins: [prefab],
 
     async mounted() {
+        // If the paypal form isn't null, we've done sign-up already
+        if (
+            this.$store.state.checkout.paypalForm &&
+            this.$route.query.paypalCallback
+        ) {
+            this.hasDoneSignUpForm = true;
+        } else {
+            this.$store.commit("checkout/mutatePaypalForm", null);
+        }
+
+        // If we haven't loaded Stripe and PayPal, load them
+        if (!loadjs.isDefined("checkout")) {
+            loadjs(
+                [
+                    "https://js.stripe.com/v2/",
+                    "https://www.paypalobjects.com/api/checkout.js"
+                ],
+                "checkout"
+            );
+        }
+
+        // Parse the query string
+        await this.parseQueryString();
+
+        // We've loaded, expose the components
         this.loading = false;
 
-        // // If the paypal form isn't null, we've done sign-up already
-        // if (
-        //   this.$store.state.checkout.paypalForm &&
-        //   this.$route.query.paypalCallback
-        // ) {
-        //   this.hasDoneSignUpForm = true;
-        // } else {
-        //   this.$store.commit("checkout/mutatePaypalForm", null);
-        // }
-        //
-        // // If we haven't loaded Stripe and PayPal, load them
-        // if (!loadjs.isDefined("checkout")) {
-        //   loadjs(
-        //     [
-        //       "https://js.stripe.com/v2/",
-        //       "https://www.paypalobjects.com/api/checkout.js"
-        //     ],
-        //     "checkout"
-        //   );
-        // }
-        //
-        // // Parse the query string
-        // await this.parseQueryString();
-        //
-        // // We've loaded, expose the components
-        // this.loading = false;
-        //
-        // // Check if we should make a PayPal purchase
-        // await this.initializePaypalFromQueryString();
-        //
-        // // Event bus for setting the sign-up form values. Mayyyybe go stateful?
-        // this.$nuxt.$on("hasDoneSignUpForm", form => {
-        //   this.form = form;
-        //   this.hasDoneSignUpForm = true;
-        // });
+        // Check if we should make a PayPal purchase
+        await this.initializePaypalFromQueryString();
+
+        // Event bus for setting the sign-up form values. Mayyyybe go stateful?
+        this.$nuxt.$on("hasDoneSignUpForm", form => {
+            this.form = form;
+            this.hasDoneSignUpForm = true;
+        });
     },
 
     props: {
