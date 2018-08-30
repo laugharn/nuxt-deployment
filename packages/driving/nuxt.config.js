@@ -30,10 +30,21 @@ export default {
         }
     },
 
+    css: [
+        {
+            lang: "scss",
+            src: corePath + "/assets/sass/style.scss"
+        }
+    ],
+
     env: {
         BUILD_NUM: pkg.version,
         ENV_FILE: process.env.ENV_FILE,
         ...config
+    },
+
+    head: {
+        titleTemplate: "%s - Aceable"
     },
 
     icon: {
