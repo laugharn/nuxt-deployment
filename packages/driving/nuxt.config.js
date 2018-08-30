@@ -60,6 +60,10 @@ export default {
         {
             src: corePath + "/plugins/directives.js",
             ssr: false
+        },
+        {
+            src: corePath + "/plugins/storage.js",
+            ssr: false
         }
     ],
 
