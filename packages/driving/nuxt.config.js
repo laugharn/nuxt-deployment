@@ -44,7 +44,7 @@ export default {
     },
 
     generate: {
-        routes: ["/checkout/", "/sitemap.xml"]
+        routes: ["/checkout/"]
     },
 
     head: {
@@ -57,7 +57,8 @@ export default {
 
     modules: [
         modulesDirPath + "/@nuxtjs/icon",
-        modulesDirPath + "/@nuxtjs/meta"
+        modulesDirPath + "/@nuxtjs/meta",
+        modulesDirPath + "/@nuxtjs/sitemap"
     ],
 
     plugins: [
@@ -90,10 +91,12 @@ export default {
         {
             handler: corePath + "/server/health-check",
             path: "health-check"
-        },
-        {
-            handler: corePath + "/server/sitemap",
-            path: "sitemap.xml"
         }
-    ]
+    ],
+
+    sitemap: {
+        generate: true,
+        hostname: "https://be.aceable.com",
+        path: "/sitemap.xml"
+    }
 };
