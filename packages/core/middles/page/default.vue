@@ -18,9 +18,11 @@ import pathUtil from "../../assets/js/utils/path";
 
 export default {
     async asyncData(context) {
-        let baseContent,
+        let aceableProduct,
+            baseContent,
             content,
             contentParts,
+            product,
             template,
             templateData,
             ultraContent;
@@ -69,7 +71,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: "page--checkout-default",
+                template: content.template || "page--default",
                 templateData
             });
         } catch (error) {

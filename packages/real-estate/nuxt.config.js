@@ -21,6 +21,7 @@ export default {
         extend(config) {
             config.resolve.alias["@core"] = corePath;
             config.resolve.alias["@modules"] = modulesDirPath;
+            config.resolve.alias["vue"] = "vue/dist/vue.esm";
         },
 
         optimization: {
@@ -44,7 +45,97 @@ export default {
     },
 
     generate: {
-        routes: ["/checkout/"]
+        routes: async function() {
+            let careers, courses, pages, partners, posts, whitepapers;
+
+            const ultra = await import(corePath +
+                "/assets/js/services/ultra/query").then(
+                response => response.default
+            );
+
+            [
+                careers,
+                courses,
+                pages,
+                partners,
+                whitepapers
+            ] = await Promise.all([
+                await ultra({
+                    post_type: "career",
+                    posts_per_page: -1
+                }).then(response =>
+                    response.posts.map(career => {
+                        return {
+                            payload: career,
+                            route: career.permalink.replace(
+                                "/careers/",
+                                "/career-center/"
+                            )
+                        };
+                    })
+                ),
+
+                await ultra({
+                    post_type: "course",
+                    posts_per_page: -1
+                }).then(response =>
+                    response.posts.map(course => {
+                        return {
+                            payload: course,
+                            route: course.permalink
+                        };
+                    })
+                ),
+
+                await ultra({
+                    post_type: "page",
+                    posts_per_page: -1
+                }).then(response =>
+                    response.posts.map(page => {
+                        return {
+                            route:
+                                page.post_name == "home" ? "/" : page.permalink,
+                            payload: page
+                        };
+                    })
+                ),
+
+                await ultra({
+                    post_type: "partner",
+                    posts_per_page: -1
+                }).then(response =>
+                    response.posts.map(partner => {
+                        return {
+                            payload: partner,
+                            route: partner.permalink.replace(
+                                "/partners/",
+                                "/partner/"
+                            )
+                        };
+                    })
+                ),
+
+                await ultra({
+                    post_type: "whitepaper",
+                    posts_per_page: -1
+                }).then(response =>
+                    response.posts.map(post => {
+                        return {
+                            route: "/whitepapers/" + post.post_name + "/",
+                            payload: post
+                        };
+                    })
+                )
+            ]);
+
+            return [
+                ...careers,
+                ...courses,
+                ...pages,
+                ...partners,
+                ...whitepapers
+            ];
+        }
     },
 
     head: {
@@ -88,7 +179,7 @@ export default {
 
     sitemap: {
         generate: true,
-        hostname: "https://be.aceable.com",
+        hostname: "https://www.aceableagent.com",
         path: "/sitemap.xml"
     }
 };

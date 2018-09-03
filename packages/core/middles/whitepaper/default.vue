@@ -45,7 +45,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: "whitepaper--default",
+                template: content.template || "whitepaper--default",
                 templateData
             });
         } catch (error) {

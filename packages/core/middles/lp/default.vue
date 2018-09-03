@@ -24,59 +24,59 @@ export default {
         sitelinkContent = {};
 
         try {
-            // ultraContent = context.route.params.sitelink
-            //     ? await ultraApi({
-            //           pagename: context.route.params.title,
-            //           type: "lp"
-            //       })
-            //     : context.payload
-            //         ? context.payload
-            //         : await ultraApi({
-            //               pagename: context.route.params.title,
-            //               type: "lp"
-            //           });
-            //
-            // if (ultraContent.product_id) {
-            //     [aceableProduct, product, sitelinkContent] = await Promise.all([
-            //         // The Aceable product
-            //         productsApi([ultraContent.product_id]).then(
-            //             response => response[0]
-            //         ),
-            //
-            //         // The name (slug) of the marketing product is the product ID, lowercase
-            //         ultraApi({
-            //             name: ultraContent.product_id.toLowerCase(),
-            //             post_type: "product"
-            //         }),
-            //
-            //         context.route.params.sitelink
-            //             ? context.payload
-            //                 ? context.payload
-            //                 : ultra({
-            //                       pagename: pathUtil(
-            //                           context.route.path,
-            //                           "/lp/"
-            //                       ),
-            //                       post_type: "lp"
-            //                   })
-            //             : null
-            //     ]);
-            //
-            //     // Nest the aceable product in the marketing product
-            //     product.product = aceableProduct;
-            //
-            //     // Attach the product to the page content
-            //     ultraContent.product = product;
-            // } else {
-            //     sitelinkContent = context.route.params.sitelink
-            //         ? context.payload
-            //             ? context.payload
-            //             : ultra({
-            //                   pagename: pathUtil(context.route.path, "/lp/"),
-            //                   post_type: "lp"
-            //               })
-            //         : null;
-            // }
+            ultraContent = context.route.params.sitelink
+                ? await ultraApi({
+                      pagename: context.route.params.title,
+                      type: "lp"
+                  })
+                : context.payload
+                    ? context.payload
+                    : await ultraApi({
+                          pagename: context.route.params.title,
+                          type: "lp"
+                      });
+
+            if (ultraContent.product_id) {
+                [aceableProduct, product, sitelinkContent] = await Promise.all([
+                    // The Aceable product
+                    productsApi([ultraContent.product_id]).then(
+                        response => response[0]
+                    ),
+
+                    // The name (slug) of the marketing product is the product ID, lowercase
+                    ultraApi({
+                        name: ultraContent.product_id.toLowerCase(),
+                        post_type: "product"
+                    }),
+
+                    context.route.params.sitelink
+                        ? context.payload
+                            ? context.payload
+                            : ultra({
+                                  pagename: pathUtil(
+                                      context.route.path,
+                                      "/lp/"
+                                  ),
+                                  post_type: "lp"
+                              })
+                        : null
+                ]);
+
+                // Nest the aceable product in the marketing product
+                product.product = aceableProduct;
+
+                // Attach the product to the page content
+                ultraContent.product = product;
+            } else {
+                sitelinkContent = context.route.params.sitelink
+                    ? context.payload
+                        ? context.payload
+                        : ultra({
+                              pagename: pathUtil(context.route.path, "/lp/"),
+                              post_type: "lp"
+                          })
+                    : null;
+            }
 
             baseContent = await import("~/assets/js/content/bases/" +
                 (ultraContent.base || "default")).then(
@@ -95,7 +95,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: "lp--default",
+                template: content.template || "lp--default",
                 templateData
             });
         } catch (error) {

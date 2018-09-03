@@ -2,16 +2,19 @@
 // Content
 import base from "~/assets/js/content/bases/default";
 
+// Libraries
+import get from "lodash/get";
+
 // Middles
-import middle from "../default";
+import middle from "@core/middles/default";
 
 // Services
-import contentBuilder from "../../assets/js/services/builders/content";
-import productsApi from "../../assets/js/services/aceable/products";
-import ultraApi from "../../assets/js/services/ultra/content";
+import contentBuilder from "@core/assets/js/services/builders/content";
+import productsApi from "@core/assets/js/services/aceable/products";
+import ultraApi from "@core/assets/js/services/ultra/content";
 
 // Utils
-import pathUtil from "../../assets/js/utils/path";
+import pathUtil from "@core/assets/js/utils/path";
 
 export default {
     async asyncData(context) {
@@ -27,8 +30,8 @@ export default {
             ultraContent = context.payload
                 ? context.payload
                 : await ultraApi({
-                      name: pathUtil(context.route.path, "/blog/"),
-                      type: "post"
+                      name: pathUtil(context.route.path, "/career-center/"),
+                      type: "career"
                   });
 
             baseContent = await import("~/assets/js/content/bases/" +
@@ -46,7 +49,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: content.template || "post--default",
+                template: content.template || "career--default",
                 templateData
             });
         } catch (error) {

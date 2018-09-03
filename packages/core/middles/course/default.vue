@@ -68,7 +68,7 @@ export default {
                 content,
                 contentParts,
                 path: context.route.path,
-                template: "course--default",
+                template: content.template || "course--default",
                 templateData
             });
         } catch (error) {
