@@ -1,4 +1,10 @@
+import dotenv from "dotenv";
 import path from "path";
+import pkg from "./package.json";
+
+const config = dotenv.config({
+    path: `./.env.${process.env.ENV_FILE || "local"}`
+}).parsed;
 
 const corePath =
     process.env.NODE_ENV == "production"
@@ -15,6 +21,74 @@ export default {
         extend(config) {
             config.resolve.alias["@core"] = corePath;
             config.resolve.alias["@modules"] = modulesDirPath;
+        },
+
+        optimization: {
+            splitChunks: {
+                name: true
+            }
         }
+    },
+
+    css: [
+        {
+            lang: "scss",
+            src: corePath + "/assets/sass/style.scss"
+        }
+    ],
+
+    env: {
+        BUILD_NUM: pkg.version,
+        ENV_FILE: process.env.ENV_FILE,
+        ...config
+    },
+
+    generate: {
+        routes: ["/checkout/"]
+    },
+
+    head: {
+        titleTemplate: "%s - AceableAgent"
+    },
+
+    icon: {
+        iconSrc: corePath + "/assets/img/icon.png"
+    },
+
+    modules: [
+        modulesDirPath + "/@nuxtjs/icon",
+        modulesDirPath + "/@nuxtjs/meta",
+        modulesDirPath + "/@nuxtjs/sitemap"
+    ],
+
+    plugins: [
+        {
+            src: corePath + "/plugins/directives.js",
+            ssr: false
+        },
+        {
+            src: corePath + "/plugins/gtm.js",
+            ssr: false
+        },
+        {
+            src: corePath + "/plugins/storage.js",
+            ssr: false
+        }
+    ],
+
+    render: {
+        gzip: {
+            threshold: 5
+        },
+        http2: {
+            push: true
+        },
+        maxAge: 360000
+    },
+
+    sitemap: {
+        generate: true,
+        hostname: "https://be.aceable.com",
+        path: "/sitemap.xml"
     }
 };

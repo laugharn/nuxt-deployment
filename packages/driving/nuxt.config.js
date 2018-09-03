@@ -86,14 +86,6 @@ export default {
         maxAge: 360000
     },
 
-    serverMiddleware: [
-        corePath + "/server/cors",
-        {
-            handler: corePath + "/server/health-check",
-            path: "health-check"
-        }
-    ],
-
     sitemap: {
         generate: true,
         hostname: "https://be.aceable.com",
