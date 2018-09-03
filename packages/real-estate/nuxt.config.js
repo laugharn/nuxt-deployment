@@ -67,10 +67,7 @@ export default {
                     response.posts.map(career => {
                         return {
                             payload: career,
-                            route: career.permalink.replace(
-                                "/careers/",
-                                "/career-center/"
-                            )
+                            route: "/career-center" + career.permalink
                         };
                     })
                 ),
