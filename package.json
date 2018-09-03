@@ -1,6 +1,9 @@
 {
     "name": "mkt-pyramid",
     "private": true,
+    "scripts": {
+        "static-re": "cd packages/real-estate && NODE_ENV=production LOCAL=true yarn generate"
+    },
     "workspaces": [
         "packages/core",
         "packages/driving",

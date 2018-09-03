@@ -73,6 +73,8 @@ export default {
                 templateData
             });
         } catch (error) {
+            console.log(error);
+
             context.error({ statusCode: 404, message: "Page not found" });
         }
     },

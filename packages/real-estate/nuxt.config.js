@@ -7,12 +7,12 @@ const config = dotenv.config({
 }).parsed;
 
 const corePath =
-    process.env.NODE_ENV == "production"
+    process.env.NODE_ENV == "production" && !process.env.LOCAL
         ? path.resolve(__dirname, "./core/")
         : path.resolve(__dirname, "../core/");
 
 const modulesDirPath =
-    process.env.NODE_ENV == "production"
+    process.env.NODE_ENV == "production" && !process.env.LOCAL
         ? path.resolve(__dirname, "./node_modules/")
         : path.resolve(__dirname, "../../node_modules/");
 

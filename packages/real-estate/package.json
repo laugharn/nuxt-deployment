@@ -1,4 +1,7 @@
 {
     "name": "real-estate",
+    "scripts": {
+        "generate": "nuxt generate"
+    },
     "version": "1.0.0"
 }

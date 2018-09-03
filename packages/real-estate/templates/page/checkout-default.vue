@@ -1,30 +1,26 @@
 <script>
-// Prefab Components
-import SpaceCheckout from "../../components/prefab/space/checkout/default.vue";
-import Structure from "../../components/prefab/structure/default.vue";
+// DIY
+import DiyStructure from "@core/components/diy/structure.vue";
+
+// Prefab
+import SpaceCheckout from "~/components/prefab/space/checkout/default.vue";
+import SpaceFooter from "~/components/prefab/space/footer/default.vue";
+import SpaceNav from "~/components/prefab/space/nav/checkout.vue";
 
 export default {
     components: {
+        DiyStructure,
         SpaceCheckout,
-        Structure
+        SpaceFooter,
+        SpaceNav
     }
 };
 </script>
 
 <template>
-    <Structure
-        :config="{
-            nav: {
-                left: {
-                    listExtensionClasses: 'd-none'
-                },
-
-                logo: {
-                    slot: 'left'
-                }
-            }
-        }"
-    >
+    <DiyStructure>
+        <SpaceNav />
         <SpaceCheckout />
-    </Structure>
+        <SpaceFooter />
+    </DiyStructure>
 </template>
