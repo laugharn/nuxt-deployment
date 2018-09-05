@@ -10,7 +10,6 @@ import middle from "@core/middles/default";
 
 // Services
 import contentBuilder from "@core/assets/js/services/builders/content";
-import productsApi from "@core/assets/js/services/aceable/products";
 import ultraApi from "@core/assets/js/services/ultra/content";
 
 // Utils

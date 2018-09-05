@@ -39,9 +39,9 @@ export default {
             if (ultraContent.product_id) {
                 [aceableProduct, product, sitelinkContent] = await Promise.all([
                     // The Aceable product
-                    productsApi([ultraContent.product_id]).then(
-                        response => response[0]
-                    ),
+                    productsApi({
+                        productIdList: [ultraContent.product_id]
+                    }).then(response => response[0]),
 
                     // The name (slug) of the marketing product is the product ID, lowercase
                     ultraApi({

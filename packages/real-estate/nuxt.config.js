@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 import dotenv from "dotenv";
 import path from "path";
 import pkg from "./package.json";
@@ -46,91 +48,235 @@ export default {
 
     generate: {
         routes: async function() {
-            let careers, courses, pages, partners, posts, whitepapers;
+            let careers, courses, partners, whitepapers;
 
             const ultra = await import(corePath +
                 "/assets/js/services/ultra/query").then(
                 response => response.default
             );
 
-            [
-                careers,
-                courses,
-                pages,
-                partners,
-                whitepapers
-            ] = await Promise.all([
-                await ultra({
-                    post_type: "career",
-                    posts_per_page: -1
-                }).then(response =>
-                    response.posts.map(career => {
-                        return {
-                            payload: career,
-                            route: "/career-center" + career.permalink
-                        };
-                    })
-                ),
+            const sleep = await import(corePath +
+                "/assets/js/utils/sleep").then(response => response.default);
 
-                await ultra({
-                    post_type: "course",
-                    posts_per_page: -1
-                }).then(response =>
-                    response.posts.map(course => {
-                        return {
-                            payload: course,
-                            route: course.permalink
-                        };
-                    })
-                ),
+            let posts = [];
 
-                await ultra({
-                    post_type: "page",
-                    posts_per_page: -1
-                }).then(response =>
-                    response.posts.map(page => {
-                        return {
-                            route:
-                                page.post_name == "home" ? "/" : page.permalink,
-                            payload: page
-                        };
-                    })
-                ),
+            const getPosts = async (
+                page = 1,
+                maxNumPages = 2,
+                perPage = 20
+            ) => {
+                if (page < maxNumPages) {
+                    let chunk = await ultra({
+                        offset: page == 1 ? 0 : page * perPage,
+                        post_type: "post",
+                        posts_per_page: perPage
+                    });
 
-                await ultra({
-                    post_type: "partner",
-                    posts_per_page: -1
-                }).then(response =>
-                    response.posts.map(partner => {
-                        return {
-                            payload: partner,
-                            route: partner.permalink.replace(
-                                "/partners/",
-                                "/partner/"
-                            )
-                        };
-                    })
-                ),
+                    posts = [
+                        ...posts,
+                        ...chunk.posts.map(post => {
+                            return {
+                                payload: post,
+                                route: "/blog/" + post.post_name + "/"
+                            };
+                        })
+                    ];
 
-                await ultra({
-                    post_type: "whitepaper",
-                    posts_per_page: -1
-                }).then(response =>
-                    response.posts.map(post => {
-                        return {
-                            route: "/whitepapers/" + post.post_name + "/",
-                            payload: post
-                        };
-                    })
-                )
-            ]);
+                    await sleep(1024);
+                    await getPosts(page + 1, chunk.max_num_pages);
+                }
+            };
+
+            await getPosts();
+
+            careers = await ultra({
+                post_type: "career",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(career => {
+                    return {
+                        payload: career,
+                        route: "/career-center" + career.permalink
+                    };
+                })
+            );
+
+            courses = await ultra({
+                post_type: "course",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(course => {
+                    return {
+                        payload: course,
+                        route: course.permalink
+                    };
+                })
+            );
+
+            let pages = [];
+
+            const getPages = async (
+                page = 1,
+                maxNumPages = 2,
+                perPage = 20
+            ) => {
+                if (page < maxNumPages) {
+                    let chunk = await ultra({
+                        offset: page == 1 ? 0 : page * perPage,
+                        post_type: "page",
+                        posts_per_page: perPage
+                    });
+
+                    pages = [
+                        ...pages,
+                        ...chunk.posts.map(post => {
+                            return {
+                                payload: post,
+                                route:
+                                    post.post_name == "home"
+                                        ? "/"
+                                        : post.permalink
+                            };
+                        })
+                    ];
+
+                    await getPages(page + 1, chunk.max_num_pages);
+                }
+            };
+
+            await getPages();
+
+            // pages = await ultra({
+            //     post_type: "page",
+            //     posts_per_page: -1
+            // }).then(response =>
+            //     response.posts.map(page => {
+            //         return {
+            //             route: page.post_name == "home" ? "/" : page.permalink,
+            //             payload: page
+            //         };
+            //     })
+            // );
+
+            partners = await ultra({
+                post_type: "partner",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(partner => {
+                    return {
+                        payload: partner,
+                        route: partner.permalink.replace(
+                            "/partners/",
+                            "/partner/"
+                        )
+                    };
+                })
+            );
+
+            whitepapers = await ultra({
+                post_type: "whitepaper",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(post => {
+                    return {
+                        route: "/whitepapers/" + post.post_name + "/",
+                        payload: post
+                    };
+                })
+            );
+
+            // [
+            //     careers,
+            //     courses,
+            //     pages,
+            //     partners,
+            //     posts,
+            //     whitepapers
+            // ] = await Promise.all([
+            //     await ultra({
+            //         post_type: "career",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(career => {
+            //             return {
+            //                 payload: career,
+            //                 route: "/career-center" + career.permalink
+            //             };
+            //         })
+            //     ),
+            //
+            //     await ultra({
+            //         post_type: "course",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(course => {
+            //             return {
+            //                 payload: course,
+            //                 route: course.permalink
+            //             };
+            //         })
+            //     ),
+            //
+            //     await ultra({
+            //         post_type: "page",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(page => {
+            //             return {
+            //                 route:
+            //                     page.post_name == "home" ? "/" : page.permalink,
+            //                 payload: page
+            //             };
+            //         })
+            //     ),
+            //
+            //     await ultra({
+            //         post_type: "partner",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(partner => {
+            //             return {
+            //                 payload: partner,
+            //                 route: partner.permalink.replace(
+            //                     "/partners/",
+            //                     "/partner/"
+            //                 )
+            //             };
+            //         })
+            //     ),
+            //
+            //     await ultra({
+            //         post_type: "post",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(post => {
+            //             return {
+            //                 route: "/blog/" + post.post_name + "/"
+            //                 // payload: post
+            //             };
+            //         })
+            //     ),
+            //
+            //     await ultra({
+            //         post_type: "whitepaper",
+            //         posts_per_page: -1
+            //     }).then(response =>
+            //         response.posts.map(post => {
+            //             return {
+            //                 route: "/whitepapers/" + post.post_name + "/",
+            //                 payload: post
+            //             };
+            //         })
+            //     )
+            // ]);
 
             return [
-                ...careers,
-                ...courses,
                 ...pages,
+                ...courses,
+                ...careers,
                 ...partners,
-                ...whitepapers
+                ...whitepapers,
+                ...posts
             ];
         }
     },

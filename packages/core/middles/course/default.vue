@@ -41,9 +41,9 @@ export default {
                     }),
 
                     // The Aceable product
-                    productsApi([ultraContent.product_id]).then(
-                        response => response[0]
-                    )
+                    productsApi({
+                        productIdList: [ultraContent.product_id]
+                    }).then(response => response[0])
                 ]);
 
                 // Nest the aceable product in the marketing product

@@ -2,6 +2,7 @@
     "name": "mkt-pyramid",
     "private": true,
     "scripts": {
+        "now": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now --static --force && rm -f package.json && mv -f _package.json package.json && rm -fR core",
         "static-re": "cd packages/real-estate && NODE_ENV=production LOCAL=true yarn generate"
     },
     "workspaces": [
