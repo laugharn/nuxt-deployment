@@ -61,13 +61,13 @@ export default {
             let posts = [];
 
             const getPosts = async (
-                page = 1,
-                maxNumPages = 2,
+                page = 0,
+                maxNumPages = 1,
                 perPage = 20
             ) => {
                 if (page < maxNumPages) {
                     let chunk = await ultra({
-                        offset: page == 1 ? 0 : page * perPage,
+                        offset: page * perPage,
                         post_type: "post",
                         posts_per_page: perPage
                     });
@@ -89,6 +89,8 @@ export default {
 
             await getPosts();
 
+            await sleep(1024);
+
             careers = await ultra({
                 post_type: "career",
                 posts_per_page: -1
@@ -100,6 +102,8 @@ export default {
                     };
                 })
             );
+
+            await sleep(1024);
 
             courses = await ultra({
                 post_type: "course",
@@ -113,16 +117,18 @@ export default {
                 })
             );
 
+            await sleep(1024);
+
             let pages = [];
 
             const getPages = async (
-                page = 1,
-                maxNumPages = 2,
+                page = 0,
+                maxNumPages = 1,
                 perPage = 20
             ) => {
                 if (page < maxNumPages) {
                     let chunk = await ultra({
-                        offset: page == 1 ? 0 : page * perPage,
+                        offset: page * perPage,
                         post_type: "page",
                         posts_per_page: perPage
                     });
@@ -140,23 +146,14 @@ export default {
                         })
                     ];
 
+                    await sleep(1024);
                     await getPages(page + 1, chunk.max_num_pages);
                 }
             };
 
             await getPages();
 
-            // pages = await ultra({
-            //     post_type: "page",
-            //     posts_per_page: -1
-            // }).then(response =>
-            //     response.posts.map(page => {
-            //         return {
-            //             route: page.post_name == "home" ? "/" : page.permalink,
-            //             payload: page
-            //         };
-            //     })
-            // );
+            await sleep(1024);
 
             partners = await ultra({
                 post_type: "partner",
@@ -173,6 +170,8 @@ export default {
                 })
             );
 
+            await sleep(1024);
+
             whitepapers = await ultra({
                 post_type: "whitepaper",
                 posts_per_page: -1
@@ -185,98 +184,13 @@ export default {
                 })
             );
 
-            // [
-            //     careers,
-            //     courses,
-            //     pages,
-            //     partners,
-            //     posts,
-            //     whitepapers
-            // ] = await Promise.all([
-            //     await ultra({
-            //         post_type: "career",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(career => {
-            //             return {
-            //                 payload: career,
-            //                 route: "/career-center" + career.permalink
-            //             };
-            //         })
-            //     ),
-            //
-            //     await ultra({
-            //         post_type: "course",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(course => {
-            //             return {
-            //                 payload: course,
-            //                 route: course.permalink
-            //             };
-            //         })
-            //     ),
-            //
-            //     await ultra({
-            //         post_type: "page",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(page => {
-            //             return {
-            //                 route:
-            //                     page.post_name == "home" ? "/" : page.permalink,
-            //                 payload: page
-            //             };
-            //         })
-            //     ),
-            //
-            //     await ultra({
-            //         post_type: "partner",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(partner => {
-            //             return {
-            //                 payload: partner,
-            //                 route: partner.permalink.replace(
-            //                     "/partners/",
-            //                     "/partner/"
-            //                 )
-            //             };
-            //         })
-            //     ),
-            //
-            //     await ultra({
-            //         post_type: "post",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(post => {
-            //             return {
-            //                 route: "/blog/" + post.post_name + "/"
-            //                 // payload: post
-            //             };
-            //         })
-            //     ),
-            //
-            //     await ultra({
-            //         post_type: "whitepaper",
-            //         posts_per_page: -1
-            //     }).then(response =>
-            //         response.posts.map(post => {
-            //             return {
-            //                 route: "/whitepapers/" + post.post_name + "/",
-            //                 payload: post
-            //             };
-            //         })
-            //     )
-            // ]);
-
             return [
-                ...pages,
+                ...posts,
                 ...courses,
                 ...careers,
                 ...partners,
                 ...whitepapers,
-                ...posts
+                ...pages
             ];
         }
     },
@@ -315,9 +229,12 @@ export default {
             threshold: 5
         },
         http2: {
-            push: true
+            push: true,
+            shouldPush: (file, type) => ["font", "script"].includes(type)
         },
-        maxAge: 360000
+        static: {
+            maxAge: "1y"
+        }
     },
 
     sitemap: {

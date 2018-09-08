@@ -16,6 +16,21 @@ export default {
             }
 
             return "nuxt";
+        },
+
+        components() {
+            if (this.$store.state.page.template !== null) {
+                let [type, modifier] = this.$store.state.page.template.split(
+                    "--"
+                );
+
+                return [
+                    () =>
+                        import("~/templates/" + type + "/" + modifier + ".vue")
+                ];
+            }
+
+            return ["nuxt"];
         }
     },
 
@@ -186,5 +201,7 @@ export default {
 </script>
 
 <template>
-    <component :is="component"></component>
+    <div style="min-height:100vh;position:relative;width:100%">
+        <component :is="component" :key="index" v-for="(component, index) in components"></component>
+    </div>
 </template>
