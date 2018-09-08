@@ -27,13 +27,13 @@ export default {
             ultraContent = context.route.params.sitelink
                 ? await ultraApi({
                       pagename: context.route.params.title,
-                      type: "lp"
+                      post_type: "lp"
                   })
                 : context.payload
                     ? context.payload
                     : await ultraApi({
                           pagename: context.route.params.title,
-                          type: "lp"
+                          post_type: "lp"
                       });
 
             if (ultraContent.product_id) {

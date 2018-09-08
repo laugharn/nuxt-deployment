@@ -29,7 +29,7 @@ export default {
                 ? context.payload
                 : await ultraApi({
                       pagename: pathUtil(context.route.path, "/courses/"),
-                      type: "course"
+                      post_type: "course"
                   });
 
             if (ultraContent.product_id) {
@@ -72,6 +72,8 @@ export default {
                 templateData
             });
         } catch (error) {
+            console.log(error);
+
             context.error({ statusCode: 404, message: "Page not found" });
         }
     },

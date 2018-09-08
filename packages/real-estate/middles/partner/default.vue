@@ -30,7 +30,7 @@ export default {
                 ? context.payload
                 : await ultraApi({
                       pagename: context.route.params.title,
-                      type: "partner"
+                      post_type: "partner"
                   });
 
             baseContent = await import("~/assets/js/content/bases/" +

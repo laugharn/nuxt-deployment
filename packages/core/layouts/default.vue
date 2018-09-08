@@ -5,21 +5,10 @@ import imageBuilder from "../assets/js/services/builders/image";
 
 export default {
     computed: {
-        component() {
-            if (this.$store.state.page.template !== null) {
-                let [type, modifier] = this.$store.state.page.template.split(
-                    "--"
-                );
-
-                return () =>
-                    import("~/templates/" + type + "/" + modifier + ".vue");
-            }
-
-            return "nuxt";
-        },
-
         components() {
             if (this.$store.state.page.template !== null) {
+                let variants = get(this.$store.state.page.content, "variants");
+
                 let [type, modifier] = this.$store.state.page.template.split(
                     "--"
                 );

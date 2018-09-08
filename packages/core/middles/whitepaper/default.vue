@@ -27,7 +27,7 @@ export default {
                 ? context.payload
                 : await ultraApi({
                       name: pathUtil(context.route.path, "/whitepapers/"),
-                      type: "whitepaper"
+                      post_type: "whitepaper"
                   });
 
             baseContent = await import("~/assets/js/content/bases/" +

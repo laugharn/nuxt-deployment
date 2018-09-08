@@ -32,7 +32,7 @@ export default {
                 ? context.payload
                 : await ultraApi({
                       pagename: pathUtil(context.route.path, "/") || "home",
-                      type: "page"
+                      post_type: "page"
                   });
 
             if (ultraContent.product_id) {
