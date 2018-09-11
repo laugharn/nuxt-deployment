@@ -20,9 +20,6 @@ export default {
             templateData,
             ultraContent;
 
-        ultraContent = context.payload;
-        sitelinkContent = {};
-
         try {
             ultraContent = context.route.params.sitelink
                 ? await ultraApi({

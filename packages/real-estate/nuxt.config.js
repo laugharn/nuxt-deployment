@@ -48,7 +48,7 @@ export default {
 
     generate: {
         routes: async function() {
-            let careers, courses, partners, whitepapers;
+            let careers, courses, lps, pages, partners, posts, whitepapers;
 
             const ultra = await import(corePath +
                 "/assets/js/services/ultra/query").then(
@@ -58,7 +58,7 @@ export default {
             const sleep = await import(corePath +
                 "/assets/js/utils/sleep").then(response => response.default);
 
-            let posts = [];
+            posts = [];
 
             const getPosts = async (
                 page = 0,
@@ -119,7 +119,19 @@ export default {
 
             await sleep(1024);
 
-            let pages = [];
+            lps = await ultra({
+                post_type: "lp",
+                posts_per_page: -1
+            }).then(response =>
+                response.posts.map(lp => {
+                    return {
+                        payload: lp,
+                        route: lp.permalink
+                    };
+                })
+            );
+
+            pages = [];
 
             const getPages = async (
                 page = 0,
@@ -188,6 +200,7 @@ export default {
                 ...posts,
                 ...courses,
                 ...careers,
+                ...lps,
                 ...partners,
                 ...whitepapers,
                 ...pages
@@ -197,6 +210,14 @@ export default {
 
     head: {
         titleTemplate: "%s - AceableAgent"
+    },
+
+    hooks: {
+        "generate:done": () => {
+            console.log(
+                "TODO: Generation is done, now what? Notification? API call? Inside joke?"
+            );
+        }
     },
 
     icon: {
