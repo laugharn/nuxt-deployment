@@ -2,9 +2,12 @@
     "name": "mkt-pyramid",
     "private": true,
     "scripts": {
-        "static-re-dev": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/Dockerfile packages/real-estate/Dockerfile && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now --build-env ENV_FILE=dev --static --force && rm -f package.json && mv -f _package.json package.json && rm -fR core && rm -f Dockerfile",
-        "static-re-production": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/Dockerfile packages/real-estate/Dockerfile && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now --build-env ENV_FILE=production --static --force && rm -f package.json && mv -f _package.json package.json && rm -fR core && rm -f Dockerfile",
-        "static-re-local": "cd packages/real-estate && NODE_ENV=production LOCAL=true yarn generate"
+        "local-drv": "cd packages/driving && yarn dev",
+        "local-re": "cd packages/real-estate && yarn dev",
+        "local-re-static": "cd packages/real-estate && NODE_ENV=production LOCAL=true yarn generate",
+        "dev-re-static": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/Dockerfile packages/real-estate/Dockerfile && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now --build-env ENV_FILE=dev --static --force && rm -f package.json && mv -f _package.json package.json && rm -fR core && rm -f Dockerfile",
+        "production-re-static": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/Dockerfile packages/real-estate/Dockerfile && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now --build-env ENV_FILE=production --static --force && rm -f package.json && mv -f _package.json package.json && rm -fR core && rm -f Dockerfile",
+        "staging-re": "cp -fR packages/core packages/real-estate && mv -f packages/real-estate/package.json packages/real-estate/_package.json && cp -f packages/core/package.json packages/real-estate/package.json && cd packages/real-estate && now -e ENV_FILE=dev -e NODE_ENV=production --force && rm -f package.json && mv -f _package.json package.json && rm -fR core"
     },
     "workspaces": [
         "packages/core",
