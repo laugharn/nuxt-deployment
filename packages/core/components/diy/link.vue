@@ -8,12 +8,26 @@ import diy from "../mixins/diy";
 export default {
     methods: {
         async handle() {
-            if (!this.handleClick) {
+            if (!this.handleClick && !this.predefinedClickAction) {
                 if (this.href) {
                     this.$store.dispatch("page/goTo", this.href);
                 }
-            } else {
+            } else if (this.handleClick) {
                 this.handleClick();
+            } else if (this.predefinedClickAction) {
+                this.predefinedClickMethod();
+            }
+        },
+
+        eventPageToggle() {
+            this.$store.commit("page/toggleMenu");
+        }
+    },
+
+    computed: {
+        predefinedClickMethod() {
+            if (this.predefinedClickAction == "page/toggleMenu") {
+                return this.eventPageToggle;
             }
         }
     },
@@ -31,6 +45,11 @@ export default {
         handleClick: {
             default: null,
             type: Function
+        },
+
+        predefinedClickAction: {
+            default: null,
+            type: String
         },
 
         href: {
@@ -57,5 +76,5 @@ export default {
 </script>
 
 <template>
-    <a :class="[linkClasses, linkExtensionClasses]" @click.prevent="handle()" :href="href" :id="id" v-html="content" v-if="show"></a>
+    <a :class="[linkClasses, linkExtensionClasses]" @click.prevent="handle()" :href="href" :id="id" v-html="content" v-if="show"><slot name="after"></slot></a>
 </template>

@@ -8,6 +8,14 @@ import diy from "../mixins/diy";
  */
 export default {
     computed: {
+        computedImageStyle() {
+            return this.imageStyle
+                ? this.imageStyle
+                : this.width
+                    ? "max-width: " + this.width + "px"
+                    : null;
+        },
+
         computedSrc() {
             if (this.remote) {
                 return this.src;
@@ -112,36 +120,7 @@ export default {
 @import "../../assets/sass/variables";
 @import "../../assets/sass/mixins";
 
-.Image {
-    display: block;
-    max-width: 100%;
-
-    &__background {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: 0;
-
-        &-wrapper {
-            background-color: map-get($grays, 500);
-            position: relative;
-            width: 100%;
-
-            &:before {
-                content: "";
-                display: block;
-            }
-        }
-    }
-
-    &__wrapper {
-        //
-    }
-}
+@import "../../assets/sass/components/diy/image";
 </style>
 
 <template>
@@ -151,6 +130,6 @@ export default {
                 <slot></slot>
             </div>
         </div>
-        <img :class="[imageClasses, imageExtensionClasses]" :height="height" :id="id" :style="imageStyle" v-if="type == 'default'" v-lazy="computedSrc" :width="width" />
+        <img :class="[imageClasses, imageExtensionClasses]" :height="height" :id="id" :style="computedImageStyle" v-if="type == 'default'" v-lazy="computedSrc" :width="width" />
     </div>
 </template>
