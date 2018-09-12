@@ -214,9 +214,7 @@ export default {
 
     hooks: {
         "generate:done": () => {
-            console.log(
-                "TODO: Generation is done, now what? Notification? API call? Inside joke?"
-            );
+            console.log(process.env.NOW_URL + " is generated");
         }
     },
 
@@ -246,7 +244,7 @@ export default {
     ],
 
     render: {
-        gzip: {
+        compressor: {
             threshold: 5
         },
         http2: {
@@ -261,6 +259,13 @@ export default {
     sitemap: {
         generate: true,
         hostname: "https://www.aceableagent.com",
-        path: "/sitemap.xml"
+        path: "/sitemap.xml",
+        routes: async function() {
+            return [
+                "/career-center/",
+                "/courses/texas/continuing-education/",
+                "/courses/texas/pre-license/"
+            ];
+        }
     }
 };
