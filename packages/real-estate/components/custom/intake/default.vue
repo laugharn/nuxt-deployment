@@ -20,7 +20,7 @@ export default {
         defaultConfig() {
             return {
                 description: {
-                    content: `Skip the classroom, but keep the back-to-school savings! Get 20% off pre-license today. Valid thru 9/9.`
+                    content: `Skip the classroom, but keep the back-to-school savings! Get 20% off pre-license today. Valid thru 9/16.`
                 },
 
                 form: {

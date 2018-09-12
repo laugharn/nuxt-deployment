@@ -22,7 +22,7 @@ export default {
             return {
                 space: {
                     id: "trial",
-                    show: false,
+                    show: true,
                     wrapperExtensionClasses: "bg-dark py-3 text-white"
                 }
             };

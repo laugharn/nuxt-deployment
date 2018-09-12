@@ -34,7 +34,7 @@ export default {
 
     methods: {
         async addToCart() {
-            await this.$store.dispatch("cart/addProducts", [
+            await this.$store.dispatch("cart/addProductsWithoutConflict", [
                 this.$store.state.page.content.product.product
             ]);
 

@@ -137,7 +137,13 @@ export default {
 
         <SpaceButton />
 
-        <SpaceTrial />
+        <SpaceTrial
+            :config="{
+                space: {
+                    wrapperClasses: 'd-none'
+                }
+            }"
+        />
 
         <SpaceCalloutYoutubeQuote />
 

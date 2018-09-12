@@ -26,7 +26,8 @@ export default {
                     content: `The videos take a class I've taken and then even taught in my office and summarize them into about 20 minutes.`,
                     id: this.id + "-quote",
                     slot: "main-body",
-                    source: `**Jill,** a Keller Williams Agent`
+                    source: `**Jill,** a Keller Williams Agent`,
+                    bodyClasses: 'hey-dave'
                 },
 
                 space: {
@@ -79,3 +80,14 @@ export default {
         <DiyQuote v-bind="computedConfig.quote" />
     </DiySpace>
 </template>
+
+<style lang="scss">
+
+#testimonial-wrapper {
+  #testimonial-quote-body-content {
+    line-height: 1.4;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+}
+</style>
