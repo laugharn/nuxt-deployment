@@ -1,1 +1,168 @@
-{}
+{
+    "name": "real-estate",
+    "static": {
+        "redirects": [
+            {
+                "source": "/blog/what-are-the-rules-for-texas-ce/",
+                "destination":
+                    "/career-center/texas/renew-texas-real-estate-license/"
+            },
+            {
+                "source": "/blog/what-is-on-the-texas-real-estate-exam/",
+                "destination":
+                    "/career-center/texas/what-is-on-the-texas-real-estate-exam/"
+            },
+            {
+                "source":
+                    "/blog/do-i-need-a-degree-to-become-a-real-estate-agent/",
+                "destination":
+                    "/career-center/online-real-estate-school-vs-correspondence-courses/"
+            },
+            {
+                "source": "/blog/online-real-estate-school-vs-correspondence/",
+                "destination":
+                    "/career-center/does-real-estate-agent-need-a-degree/"
+            },
+            {
+                "source":
+                    "/blog/how-long-does-it-take-to-get-a-real-estate-license/",
+                "destination":
+                    "/career-center/how-long-does-it-take-to-get-real-estate-license/"
+            },
+            {
+                "source": "/blog/how-much-do-real-estate-agents-make-texas/",
+                "destination":
+                    "/career-center/how-much-do-real-estate-agents-make/"
+            },
+            {
+                "source": "/blog/how-does-real-estate-agent-get-paid/",
+                "destination":
+                    "/career-center/how-does-a-real-estate-agent-get-paid/"
+            },
+            {
+                "source":
+                    "/blog/how-to-study-for-your-real-estate-license-exam/",
+                "destination": "/career-center/passing-your-real-estate-exam/"
+            },
+            {
+                "source": "/blog/how-to-become-a-realtor/",
+                "destination": "/career-center/how-to-become-a-realtor/"
+            },
+            {
+                "source": "/blog/real-estate-broker-vs-agent/",
+                "destination": "/career-center/real-estate-broker-vs-agent/"
+            },
+            {
+                "source": "/blog/how-long-to-sell-house/",
+                "destination": "/career-center/close-first-real-estate-deal/"
+            },
+            {
+                "source": "/blog/a-week-in-the-life-of-a-real-estate-agent/",
+                "destination":
+                    "/career-center/a-week-in-the-life-of-a-real-estate-agent/"
+            },
+            {
+                "source": "/blog/texas-real-estate-license/",
+                "destination":
+                    "/career-center/texas/how-to-get-texas-real-estate-license/"
+            },
+            {
+                "source": "/blog/how-long-texas-real-estate-school/",
+                "destination":
+                    "/career-center/texas/how-long-to-get-texas-real-estate-license/"
+            },
+            {
+                "source": "/blog/texas-real-estate-courses/",
+                "destination":
+                    "/career-center/texas/courses-required-to-earn-texas-real-estate-license/"
+            },
+            {
+                "source":
+                    "/blog/do-real-estate-agents-need-college-degree-texas/",
+                "destination":
+                    "/career-center/texas/college-degree-texas-real-estate-agents/"
+            },
+            {
+                "source": "/blog/cost-of-real-estate-license-texas/",
+                "destination":
+                    "/career-center/texas/cost-of-texas-real-estate-license/"
+            },
+            {
+                "source": "/blog/best-real-estate-broker-texas/",
+                "destination":
+                    "/career-center/texas/choose-your-first-real-estate-brokerage-texas/"
+            },
+            {
+                "source":
+                    "/blog/5-things-to-know-before-selling-real-estate-part-time/",
+                "destination": "/career-center/real-estate-part-time/"
+            },
+            {
+                "source":
+                    "/blog/should-i-work-while-i-earn-my-real-estate-license/",
+                "destination":
+                    "/career-center/work-while-earning-real-estate-license/"
+            },
+            {
+                "source": "/courses/texas-legal-continuing-education-package/",
+                "destination":
+                    "/courses/texas/continuing-education/legal-update-package/"
+            },
+            {
+                "source":
+                    "/courses/texas/continuing-education/be-the-neighborhood-expert-a-video-course-with-jason-edwards/",
+                "destination":
+                    "/courses/texas/continuing-education/jason-edwards-real-estate-neighborhood-expert/"
+            },
+            {
+                "source":
+                    "/courses/texas-real-estate-agent-continuing-education/",
+                "destination":
+                    "/courses/texas/continuing-education/agent-package/"
+            },
+            {
+                "source":
+                    "/courses/texas-real-estate-broker-continuing-education/",
+                "destination":
+                    "/courses/texas/continuing-education/broker-package/"
+            },
+            {
+                "source": "/tandc/TX.LU1/",
+                "destination":
+                    "https://d1u7daj727sadp.cloudfront.net/documents/re.tx.rece-terms.pdf"
+            },
+            { "source": "/tandc/*", "destination": "/terms-and-conditions/" },
+            {
+                "source": "/to/reviews/",
+                "destination":
+                    "https://www.trustpilot.com/review/aceableagent.com"
+            },
+            {
+                "source": "/partner/abor/texas/continuing-education/",
+                "destination": "/partner/abor/"
+            },
+            {
+                "source": "/ap/real-ce-continuing-education/",
+                "destination": "/partner/real-ce/"
+            },
+            {
+                "source": "/ap/real-ce-pre-license/",
+                "destination": "/partner/real-ce/"
+            },
+            {
+                "source":
+                    "/courses/texas-real-estate-agent-continuing-education/:course/",
+                "destination": "/courses/texas/continuing-education/:course/"
+            },
+            {
+                "source":
+                    "/courses/texas-real-estate-broker-continuing-education/:course/",
+                "destination": "/courses/texas/continuing-education/:course/"
+            },
+            {
+                "source": "/courses/us/**/",
+                "destination": "/courses/nationwide/training/"
+            }
+        ]
+    }
+}
